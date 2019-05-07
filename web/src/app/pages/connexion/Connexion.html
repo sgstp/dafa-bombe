@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="row">
+        <div class="col box">
+            <div class="alert alert-danger" v-if="erreurConnexion"><span v-html="$t('erreurConnexion')"></span></div>
+            <vue-form-generator :schema="schema" :model="donnees"></vue-form-generator>
+            <div class="codeOrganisation">{{codeOrganisation}}</div>
+        </div>
+    </div>
+    <message-plein-ecran v-if="chargement" :message="$t('messageChargement.connexion')" :type="'chargement'"></message-plein-ecran>
+</div>

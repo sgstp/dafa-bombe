@@ -1,0 +1,14 @@
+{
+    "extends": "stylelint-config-standard",
+    "plugins": [
+        "stylelint-scss"
+    ],    
+    "rules": {
+        "at-rule-empty-line-before": null,
+        "indentation": 4,
+        "scss/dollar-variable-pattern": "^foo",
+        "scss/selector-no-redundant-nesting-selector": true,
+        "comment-empty-line-before": null,
+        "no-empty-source": null
+    }
+}
