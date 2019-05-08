@@ -1,14 +1,15 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import WithRender from './Decompte.html?style=./Decompte.scss';
-import {Etat} from '@/app/services/rest';
+import { Etat } from '@/app/services/rest';
 import Api from '@/app/services/Api';
 import Timeout = NodeJS.Timeout;
-import Lodash from "lodash";
+import Lodash from 'lodash';
+import Config from '@/app/utils/Config';
 
 let INTERVAL_MAJ_DONNEES: number = 400;
 let INTERVAL_MAJ_BUZZER: number = 900;
-let CODE: number[] = [2,8,9,7,5,0,3,4,1,6];
+let CODE: number[] = Config.codeDesarmement;
 
 @WithRender
 @Component({})
@@ -52,7 +53,7 @@ export default class PageDecompte extends Vue {
     }
 
     get minuteRestante(): string {
-        return Lodash.padStart(Math.floor(this.etat.secondeRestante/60).toString(),2,'0');
+        return Lodash.padStart(Math.floor(this.etat.secondeRestante / 60).toString(),2,'0');
     }
 
     get secondeRestante(): string {
@@ -69,15 +70,15 @@ export default class PageDecompte extends Vue {
         return !this.etat.decompteEnCours && !this.afficherDesarme;
     }
     get afficherCode(): boolean {
-        return this.etat.afficherCode;
+        return this.etat.afficherCode && !this.afficherDesarme;
     }
 
     ajouterCode(val: number): void {
         this.code = Lodash.pull(this.code, val);
-        this.code.unshift(val)
+        this.code.unshift(val);
 
         let estCodeEgual = (): boolean => {
-            let ok = true
+            let ok = true;
             this.code.forEach((v,i) => {
                 console.log(CODE[i]);
                 if (v != CODE[i]) {
@@ -85,7 +86,7 @@ export default class PageDecompte extends Vue {
                 }
             });
             return ok;
-        }
+        };
 
         if (estCodeEgual()) {
             clearInterval(this.intervalMaj);

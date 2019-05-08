@@ -31,7 +31,12 @@ public class ServiceEtat {
         this.etat.setDecompteEnCours(etat.getDecompteEnCours());
         this.etat.setDesarmer(etat.getDesarmer());
         this.etat.setAfficherCode(etat.getAfficherCode());
+    }
 
+    @PUT
+    @Path("temps")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void setEtatTemps(Etat etat) {
         this.etat.setSecondeRestante(etat.getSecondeRestante());
     }
 }

@@ -11,7 +11,7 @@ public class Decompte {
 
     private final Etat etat;
 
-    @Scheduled(fixedRate = 200)
+    @Scheduled(fixedRate = 100)
     public void reduireCompteur() {
         if (
             etat.getDecompteEnCours() && (

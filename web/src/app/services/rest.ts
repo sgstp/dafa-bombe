@@ -1,4 +1,4 @@
-// Generated using typescript-generator version 2.1.406 on 2019-05-08 01:04:15.
+// Generated using typescript-generator version 2.1.406 on 2019-05-08 16:50:54.
 
 export class Etat {
     dernierMiseAJour: number;
@@ -25,7 +25,7 @@ export class RestApplicationClient<O> {
      * Java method: ca.sgstp.dafa.bombe.services.etat.ServiceEtat.getEtat
      */
     getEtat(options?: O): RestResponse<Etat> {
-        return this.httpClient.request({ method: "GET", url: uriEncoding`etat`, options: options });
+        return this.httpClient.request({ method: 'GET', url: uriEncoding`etat`, options: options });
     }
 
     /**
@@ -33,7 +33,15 @@ export class RestApplicationClient<O> {
      * Java method: ca.sgstp.dafa.bombe.services.etat.ServiceEtat.setEtat
      */
     setEtat(etat: Etat, options?: O): RestResponse<void> {
-        return this.httpClient.request({ method: "PUT", url: uriEncoding`etat`, data: etat, options: options });
+        return this.httpClient.request({ method: 'PUT', url: uriEncoding`etat`, data: etat, options: options });
+    }
+
+    /**
+     * HTTP PUT /etat/temps
+     * Java method: ca.sgstp.dafa.bombe.services.etat.ServiceEtat.setEtatTemps
+     */
+    setEtatTemps(etat: Etat, options?: O): RestResponse<void> {
+        return this.httpClient.request({ method: 'PUT', url: uriEncoding`etat/temps`, data: etat, options: options });
     }
 
     /**
@@ -41,7 +49,7 @@ export class RestApplicationClient<O> {
      * Java method: org.glassfish.jersey.server.wadl.internal.WadlResource.getExternalGrammar
      */
     getExternalGrammar(path: string, options?: O): RestResponse<any> {
-        return this.httpClient.request({ method: "GET", url: uriEncoding`application.wadl/${path}`, options: options });
+        return this.httpClient.request({ method: 'GET', url: uriEncoding`application.wadl/${path}`, options: options });
     }
 
     /**
@@ -49,14 +57,14 @@ export class RestApplicationClient<O> {
      * Java method: org.glassfish.jersey.server.wadl.internal.WadlResource.getWadl
      */
     getWadl(options?: O): RestResponse<any> {
-        return this.httpClient.request({ method: "GET", url: uriEncoding`application.wadl`, options: options });
+        return this.httpClient.request({ method: 'GET', url: uriEncoding`application.wadl`, options: options });
     }
 }
 
 export type RestResponse<R> = Promise<Axios.GenericAxiosResponse<R>>;
 
 function uriEncoding(template: TemplateStringsArray, ...substitutions: any[]): string {
-    let result = "";
+    let result = '';
     for (let i = 0; i < substitutions.length; i++) {
         result += template[i];
         result += encodeURIComponent(substitutions[i]);
@@ -65,13 +73,12 @@ function uriEncoding(template: TemplateStringsArray, ...substitutions: any[]): s
     return result;
 }
 
-
 // Added by 'AxiosClientExtension' extension
 
-import axios from "axios";
-import * as Axios from "axios";
+import axios from 'axios';
+import * as Axios from 'axios';
 
-declare module "axios" {
+declare module 'axios' {
     export interface GenericAxiosResponse<R> extends Axios.AxiosResponse {
         data: R;
     }

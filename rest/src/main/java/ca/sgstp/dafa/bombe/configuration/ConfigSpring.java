@@ -1,6 +1,7 @@
 package ca.sgstp.dafa.bombe.configuration;
 
 import ca.sgstp.dafa.bombe.filtres.FiltreCORS;
+import ca.sgstp.dafa.bombe.services.etat.ServiceEtat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,7 +36,8 @@ public class ConfigSpring {
     public ResourceConfig resourceConfig() {
         return new ResourceConfig() {
             {
-                packages("ca.sgstp.dafa.bombe.services");
+//                packages("ca.sgstp.dafa.bombe.services");
+                register(ServiceEtat.class);
 
                 register(FiltreCORS.class, 1000);
 
