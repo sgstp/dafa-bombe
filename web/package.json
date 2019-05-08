@@ -6,7 +6,7 @@
     "scripts": {
         "clean": "rimraf dist",
         "dev": "webpack-dev-server --config conf/webpack.config.js --content-base src --colors --port 5000 --history-api-fallback --client-log-level=error --mode=development",
-        "dev--": "webpack-dev-server --config conf/webpack.config.js --content-base src --colors --host 192.168.2.18 --port 5000 --history-api-fallback --client-log-level=error --mode=development",
+        "dev--": "webpack-dev-server --config conf/webpack.config.js --content-base src --colors --host 192.168.0.170 --port 5000 --history-api-fallback --client-log-level=error --mode=development",
         "build": "webpack --env.prod --config conf/webpack.config.js --colors --optimize-minimize",
         "build-dev": "webpack --config conf/webpack.config.js --colors --optimize-minimize",
         "prod": "http-server dist -p 5000 -g -o",

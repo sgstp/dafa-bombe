@@ -29,5 +29,9 @@ public class ServiceEtat {
         this.etat.setBuzzerActif(etat.getBuzzerActif());
         this.etat.setDecompteAccelere(etat.getDecompteAccelere());
         this.etat.setDecompteEnCours(etat.getDecompteEnCours());
+        this.etat.setDesarmer(etat.getDesarmer());
+        this.etat.setAfficherCode(etat.getAfficherCode());
+
+        this.etat.setSecondeRestante(etat.getSecondeRestante());
     }
 }

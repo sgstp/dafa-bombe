@@ -11,4 +11,6 @@ public class Etat {
     private Boolean decompteAccelere = false;
     private Boolean decompteEnCours = false;
     private Boolean buzzerActif = false;
+    private Boolean desarmer = false;
+    private Boolean afficherCode = false;
 }

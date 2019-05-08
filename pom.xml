@@ -67,6 +67,7 @@
                     </plugin>
                     <plugin>
                         <artifactId>maven-resources-plugin</artifactId>
+                        <inherited>false</inherited>
                         <executions>
                             <execution>
                                 <id>Copie stel-web dans le jar</id>
@@ -75,11 +76,11 @@
                                     <goal>copy-resources</goal>
                                 </goals>
                                 <configuration>
-                                    <outputDirectory>rest/target/classes/static</outputDirectory>
+                                    <outputDirectory>rest/src/main/resources/static</outputDirectory>
                                     <overwrite>true</overwrite>
                                     <resources>
                                         <resource>
-                                            <directory>${project.parent.relativePath}/web/dist</directory>
+                                            <directory>web/dist</directory>
                                         </resource>
                                     </resources>
                                 </configuration>

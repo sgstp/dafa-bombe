@@ -1,22 +1,13 @@
-// Generated using typescript-generator version 2.1.406 on 2019-05-07 21:38:40.
+// Generated using typescript-generator version 2.1.406 on 2019-05-08 01:04:15.
 
-export interface Etat {
+export class Etat {
     dernierMiseAJour: number;
     secondeRestante: number;
     decompteAccelere: boolean;
     decompteEnCours: boolean;
     buzzerActif: boolean;
-}
-
-export interface BuildInformation {
-    branch: string;
-    buildTime: string;
-    buildUserName: string;
-    buildVersion: string;
-    commitId: string;
-    commitIdAbbrev: string;
-    dirty: string;
-    tags: string;
+    desarmer: boolean;
+    afficherCode: boolean;
 }
 
 export interface HttpClient<O> {
@@ -38,19 +29,11 @@ export class RestApplicationClient<O> {
     }
 
     /**
-     * HTTP POST /etat
+     * HTTP PUT /etat
      * Java method: ca.sgstp.dafa.bombe.services.etat.ServiceEtat.setEtat
      */
     setEtat(etat: Etat, options?: O): RestResponse<void> {
-        return this.httpClient.request({ method: "POST", url: uriEncoding`etat`, data: etat, options: options });
-    }
-
-    /**
-     * HTTP GET /version
-     * Java method: ca.sgstp.dafa.bombe.services.ServiceVersion.obtenirVersion
-     */
-    obtenirVersion(options?: O): RestResponse<BuildInformation> {
-        return this.httpClient.request({ method: "GET", url: uriEncoding`version`, options: options });
+        return this.httpClient.request({ method: "PUT", url: uriEncoding`etat`, data: etat, options: options });
     }
 
     /**

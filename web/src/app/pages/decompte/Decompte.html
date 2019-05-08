@@ -1,7 +1,20 @@
-<div class="container">
-    <div class="row">
-        <div class="col box">
-            {{etat}}
+<div class="container-fluid">
+    <div class="row" v-show="afficherDecompte">
+        <div class="col decompte">
+            {{minuteRestante}}:{{secondeRestante}}
         </div>
     </div>
+
+    <div class="row" v-show="afficherDesarme">
+        <div class="col desarme">
+            DÉSARMÉ
+        </div>
+    </div>
+<!--    <audio ref="buzzer" controls>-->
+<!--        <source src="/public/buzzer2.mp3" type="audio/mpeg">-->
+<!--    </audio>-->
+
+    <audio ref="buzzer" loop autoplay>
+        <source src="/public/longBuzzer.mp3" type="audio/mpeg">
+    </audio>
 </div>
