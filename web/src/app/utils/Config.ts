@@ -5,6 +5,8 @@ export default class Config {
     // @ts-ignore
     static intervalMajApi: number = 1000;
     // @ts-ignore
-    static urlApi: number = '/';
+    static urlApi: string = '/';
 
+
+    static pageDecompte = 'pageDecompte';
 }

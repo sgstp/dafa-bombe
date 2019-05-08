@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.2.RELEASE</version>
+        <version>2.1.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -18,10 +18,7 @@
 
     <properties>
         <java.version>11</java.version>
-
-        <javax.ws.rs-api.version>2.1</javax.ws.rs-api.version>
         <ts-generator.version>2.1.406</ts-generator.version>
-        <git-commit-id-plugin.version>2.2.6</git-commit-id-plugin.version>
     </properties>
 
     <dependencies>
@@ -33,7 +30,6 @@
     </dependencies>
 
     <modules>
-        <module>apis</module>
         <module>rest</module>
     </modules>
 
@@ -60,38 +56,36 @@
                                 <phase>install</phase>
                                 <configuration>
                                     <executable>npm</executable>
-                                    <workingDirectory>stel-web</workingDirectory>
+                                    <workingDirectory>web</workingDirectory>
                                     <arguments>
                                         <argument>run</argument>
                                         <argument>build</argument>
-                                        <argument>--</argument>
-                                        <argument>--env.version=${project.version}</argument>
                                     </arguments>
                                 </configuration>
                             </execution>
                         </executions>
                     </plugin>
-                    <!--<plugin>-->
-                        <!--<artifactId>maven-resources-plugin</artifactId>-->
-                        <!--<executions>-->
-                            <!--<execution>-->
-                                <!--<id>Copie stel-web dans le jar</id>-->
-                                <!--<phase>install</phase>-->
-                                <!--<goals>-->
-                                    <!--<goal>copy-resources</goal>-->
-                                <!--</goals>-->
-                                <!--<configuration>-->
-                                    <!--<outputDirectory>stel-rest/src/main/resources/static</outputDirectory>-->
-                                    <!--<overwrite>true</overwrite>-->
-                                    <!--<resources>-->
-                                        <!--<resource>-->
-                                            <!--<directory>${project.parent.relativePath}/stel-web/dist</directory>-->
-                                        <!--</resource>-->
-                                    <!--</resources>-->
-                                <!--</configuration>-->
-                            <!--</execution>-->
-                        <!--</executions>-->
-                    <!--</plugin>-->
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>Copie stel-web dans le jar</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>rest/target/classes/static</outputDirectory>
+                                    <overwrite>true</overwrite>
+                                    <resources>
+                                        <resource>
+                                            <directory>${project.parent.relativePath}/web/dist</directory>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
                 </plugins>
             </build>
         </profile>

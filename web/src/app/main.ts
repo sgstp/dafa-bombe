@@ -1,8 +1,6 @@
 import './polyfills';
 import Vue from 'vue';
-import store from './store';
 import router from './router';
-import i18n from './i18n';
 
 import VueFormGenerator from 'vue-form-generator/';
 import 'vue-form-generator/dist/vfg.css';
@@ -26,8 +24,6 @@ Vue.use(VueFormGenerator);
 
 const vue = new Vue({
     router,
-    store,
-    i18n,
     template: '<app></app>',
     components: { app: PageHome }
 });
